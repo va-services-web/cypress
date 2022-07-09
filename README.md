@@ -37,3 +37,11 @@ yarn install
 # Run the app
 yarn dev
 ```
+
+### Install & run Cypress
+```
+# install cypress
+yarn add cypress --dev
+# run cypress
+yarn run cypress open
+```

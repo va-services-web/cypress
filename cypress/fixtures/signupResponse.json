@@ -1,0 +1,9 @@
+{
+    "user" : {
+      "image" : "image",
+      "bio" : "bio",
+      "email" : "email",
+      "token" : "token",
+      "username" : "username"
+    }
+  }

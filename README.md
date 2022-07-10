@@ -40,8 +40,21 @@ yarn dev
 
 ### Install & run Cypress
 ```
+# install lib to extend cy commands with localStorage
+yarn add cypress-localstorage-commands --dev
 # install cypress
 yarn add cypress --dev
 # run cypress
 yarn run cypress open
+```
+
+### Running the tests
+```
+# run tests from commanline
+yarn test
+```
+
+### Issues
+```
+# registration response status codes are not checked correctly. If we get the expected response body the status is matching 2xx or 4xx it will 
 ```

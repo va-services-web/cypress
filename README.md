@@ -58,3 +58,11 @@ yarn test
 ```
 # registration response status codes are not checked correctly. If we get the expected response body the status is matching 2xx or 4xx it will 
 ```
+
+### Improvements
+```
+# add project to CI
+# better organization of locators
+# check if we can overwrite visit to check localStorage for teh token and if present to send request with token
+# check if we can refactor current article and username spec files
+```

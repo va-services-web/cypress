@@ -1,15 +1,21 @@
 /// <reference types="cypress" />
 
+import HomePage from './pageObjects/homePage';
+
 describe('viewing the landing page works, and checking that a list of articles loads', () => {
+    const homePage = new HomePage();
 
     beforeEach(() => {
-        cy.visit('/');
+        homePage.visit();
     });
+
     it('landing page has the correct h1 title', () => {
-      cy.contains('h1', 'conduit').should('be.visible');
+        homePage.getTitle()
+            .should('be.visible');
     });
 
     it('articles are loaded on landing page', () => {
-        cy.get('div.article-preview').should('not.be.empty');
+        homePage.getAllPosts()
+            .should('not.be.empty');
     });
 })

@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+import SettingsPage from "../pageObjects/settingsPage";
+import ArticleCreatePage from "../pageObjects/articleCreatePage";
+
 describe('login user', () => {
     
     before(() => {
@@ -12,12 +15,20 @@ describe('login user', () => {
     });
 
     it("successfully navigate to user settings page as logged in user using command", () => {
-        cy.visitWithToken('/settings');
-        cy.contains('h1', 'Your Settings').should('be.visible');
+        const settingsPage = new SettingsPage();
+
+        settingsPage.visitWithToken()
+        
+        settingsPage.getTitle()
+            .should('be.visible');
     });
 
     it("successfully navigate to create article page as logged in user using command", () => {
-        cy.visitWithToken('/article/create');
-        cy.get('button[type="submit"]').should('be.visible');
+        const articleCreatePage = new ArticleCreatePage();
+
+        articleCreatePage.visitWithToken()
+        
+        settingsPage.getPublishArticleButton()
+            .should('be.visible');
     });
 })

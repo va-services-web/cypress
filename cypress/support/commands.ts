@@ -27,3 +27,17 @@ Cypress.Commands.add('visitWithToken', (url) => {
         });
     });
 });
+
+Cypress.Commands.add('fillInput', (locator, value) => {
+    const field = cy.get(locator);
+    field.clear();
+    field.type(value);
+});
+
+Cypress.Commands.add('clickAndCheckPageUrl', (locator) => {
+    cy.get(locator).first().as('tag')
+        .invoke('attr', 'href')
+        .then((href) => {
+            cy.get('@tag').first().click().url().should('include', href);
+        });
+});

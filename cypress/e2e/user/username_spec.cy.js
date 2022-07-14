@@ -1,18 +1,21 @@
 /// <reference types="cypress" />
 
+import HomePage from '../pageObjects/homePage';
+import ProfilePage from '../pageObjects/profilePage';
+
 describe('clicking on a username loads the users page', () => {
+  const homePage = new HomePage();
 
   beforeEach(function () {
-    cy.visit('/');
+    homePage.visit();
   });
   
   it('after user is clicked on landing page the user page is loaded', () => {
-    cy.get('a[aria-label="profile"]').first().as('author')
-        .invoke('attr', 'href')
-          .then((href) => {
-            cy.get('@author').first().click().url().should('include', href);
-          });
+    cy.clickAndCheckPageUrl(homePage.getFirstArticleLocator());
       
-      cy.contains('h4', 'Gerald').should('be.visible');
+    const profilePage = new ProfilePage();
+
+    profilePage.getUserName()
+      .should('be.visible');
   });  
 })

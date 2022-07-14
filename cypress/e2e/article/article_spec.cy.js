@@ -1,16 +1,20 @@
 /// <reference types="cypress" />
 
+import HomePage from '../pageObjects/homePage';
+import ArticlePage from '../pageObjects/ArticlePage';
+
 describe('clicking on an article loads it in a new page', () => {
+  const homePage = new HomePage();
 
   beforeEach(function () {
-    cy.visit('/');
+    homePage.visit();
   });
 
   it('first article loads on new page', () => {
-      cy.get('a[aria-label="article"]').first().as('article')
-      .invoke('attr', 'href')
-        .then(href => {
-          cy.get('@article').click().url().should('include', href);
-        });
+    cy.clickAndCheckPageUrl(homePage.getFirstArticle());
+
+    const articlePage = new ArticlePage();
+    articlePage.getTitle()
+      .should('be.visible');
   });
 })

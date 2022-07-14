@@ -1,15 +1,18 @@
 /// <reference types="cypress" />
 
-import { doLogin } from '../utils';
+import SignInPage from '../pageObjects/SignInPage';
 import user from '../../fixtures/users/realUser.json';
 
 describe('login user', () => {
+    const signInPage = new SignInPage();
+
     beforeEach(() => {
-        cy.visit('/login');
+        signInPage.visit();
     });
 
     it("sucessfull login through the UI", () => {
-        doLogin(user);
+        signInPage.fillInAndSubmit(user);
+
         cy.hash().should('eq', '#/');
     });
 })

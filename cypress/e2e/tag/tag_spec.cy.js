@@ -1,13 +1,18 @@
 /// <reference types="cypress" />
 
+import HomePage from '../pageObjects/homePage';
+
 describe('from the landing page, clicking on a popular tag navigates the user to the results page of that tag', () => {
+    const homePage = new HomePage();
+
     beforeEach(function () {
-      cy.visit('/');
+      homePage.visit();
     });
   
     it('user clicks on first popular tag', () => {
-        cy.contains('a', 'Global Feed').should('be.visible');
-
+        homePage.getGlobalFeed()
+        .should('be.visible');
+        
         let tagText;
         cy.get('a[aria-label="tag"]').first().as('popularTag')
             .then( $tag => {

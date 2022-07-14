@@ -68,8 +68,9 @@ yarn test
 
 ### Improvements
 ```
-# add CI
+# add project to CI
 # better organization of locators
+# check if we can overwrite visit to check localStorage for teh token and if present to send request with token
 # check if we can overwrite visit to handle both puplic and private pages
 # check if we can refactor current article and username spec files
 ```

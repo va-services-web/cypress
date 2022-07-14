@@ -56,7 +56,14 @@ yarn test
 
 ### Issues
 ```
-# registration response status codes are not checked correctly. If we get the expected response body the status is matching 2xx or 4xx it will 
+
+# registration response status codes are not checked correctly. If the expected response body is received then the status is matched gainst classes of statuses (2xx or 4xx) instead of specific status as described in api
+# exceptions when clicking on Follow user or Favourite articles
+# Sign in page - error when logging using 'test2example.com' and non valid password. No visual feedback is presented to the user.
+# Logout functionality is not user friendly. The logout button is present on Settings page and is hard to find.
+# Updating the user settings does not work.
+# New Post - enter tags is not user-friendly. Also not sure why field "What's this article about?" is mandatory. If this is mandatory it should provide some visual indication to user.
+# Error when fetching new articles.
 ```
 
 ### Improvements
@@ -64,5 +71,6 @@ yarn test
 # add project to CI
 # better organization of locators
 # check if we can overwrite visit to check localStorage for teh token and if present to send request with token
+# check if we can overwrite visit to handle both puplic and private pages
 # check if we can refactor current article and username spec files
 ```
